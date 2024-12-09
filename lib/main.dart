@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Home/home_screen.dart';
+import 'package:islami_app/themes/app_theme.dart';
 
 void main() {
   runApp(const IslamiApp());
@@ -8,14 +9,15 @@ void main() {
 class IslamiApp extends StatelessWidget {
   const IslamiApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
       initialRoute: HomeScreen.routeName,
       routes: {
-        HomeScreen.routeName: (context) => HomeScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
       },
     );
   }
