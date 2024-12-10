@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Home/home_screen.dart';
+import 'package:islami_app/onboarding_screen/onboarding_screen.dart';
 import 'package:islami_app/themes/app_theme.dart';
 
 void main() {
@@ -15,9 +16,10 @@ class IslamiApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
-      initialRoute: HomeScreen.routeName,
+      initialRoute: OnboardingScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => const HomeScreen(),
+        OnboardingScreen.routeName: (context) => const OnboardingScreen(),
       },
     );
   }
