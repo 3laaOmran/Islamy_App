@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/models/sura_model.dart';
+import 'package:islami_app/quran_tab/sura_details_screen.dart';
 import 'package:islami_app/quran_tab/sura_item.dart';
-import 'package:islami_app/quran_tab/suras_lists.dart';
 
 import '../themes/app_colors.dart';
 
@@ -114,11 +115,14 @@ class QuranTab extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-                itemBuilder: (context, index) => SuraItem(
-                    suranEnName: englishQuranSuras[index],
-                    suranArName: arabicQuranSuras[index],
-                    suranNumber: index + 1,
-                    suranVerses: suraVerses[index]),
+                itemBuilder: (context, index) => InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, SuraDetailsScreen.routeName,
+                            arguments: SuraModel.getSuraModel(index));
+                      },
+                      child: SuraItem(suraModel: SuraModel.getSuraModel(index)),
+                    ),
                 separatorBuilder: (context, index) => const Divider(
                       color: AppColors.whiteColor,
                       thickness: 1,
@@ -126,7 +130,7 @@ class QuranTab extends StatelessWidget {
                       endIndent: 40,
                       height: 20,
                     ),
-                itemCount: suraVerses.length),
+                itemCount: SuraModel.suraVersesList.length),
           )
         ],
       ),

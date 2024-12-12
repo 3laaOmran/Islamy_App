@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/models/sura_model.dart';
 import 'package:islami_app/themes/app_colors.dart';
 
 class SuraItem extends StatelessWidget {
-  final String suranEnName;
-  final String suranArName;
-  final int suranNumber;
-  final String suranVerses;
+  final SuraModel suraModel;
 
   const SuraItem(
-      {super.key,
-      required this.suranEnName,
-      required this.suranArName,
-      required this.suranNumber,
-      required this.suranVerses});
+      {super.key, required this.suraModel});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +17,9 @@ class SuraItem extends StatelessWidget {
           children: [
             Image.asset('assets/images/sura_number_frame.png'),
             Text(
-              '$suranNumber',
+              '${suraModel.index + 1}',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 15,
                 color: AppColors.whiteColor,
                 fontWeight: FontWeight.w700,
               ),
@@ -41,7 +35,7 @@ class SuraItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    suranEnName,
+                    suraModel.suraEnName,
                     style: TextStyle(
                       fontSize: 20,
                       color: AppColors.whiteColor,
@@ -49,7 +43,7 @@ class SuraItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '$suranVerses verses',
+                    '${suraModel.suraVerses} verses',
                     style: TextStyle(
                       fontSize: 14,
                       color: AppColors.whiteColor,
@@ -59,7 +53,7 @@ class SuraItem extends StatelessWidget {
                 ],
               ),
               Text(
-                suranArName,
+                suraModel.suraArName,
                 style: TextStyle(
                   fontSize: 20,
                   color: AppColors.whiteColor,
