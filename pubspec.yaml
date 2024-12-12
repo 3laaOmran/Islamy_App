@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_native_splash: ^2.4.3
+  carousel_slider: ^5.0.0
   flutter:
     sdk: flutter
 
