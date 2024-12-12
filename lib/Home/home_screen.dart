@@ -55,40 +55,43 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: bottomNavTabs[currentIndex],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: AppColors.primaryColor,
-          currentIndex: currentIndex,
-          selectedItemColor: Colors.white,
-          showSelectedLabels: true,
-          showUnselectedLabels: false,
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: selectedBottomBarDecoration(index: 0),
-              label: 'Quran',
-            ),
-            BottomNavigationBarItem(
-              icon: selectedBottomBarDecoration(index: 1),
-              label: 'Hadeth',
-            ),
-            BottomNavigationBarItem(
-              icon: selectedBottomBarDecoration(index: 2),
-              label: 'Sebha',
-            ),
-            BottomNavigationBarItem(
-              icon: selectedBottomBarDecoration(index: 3),
-              label: 'Radio',
-            ),
-            BottomNavigationBarItem(
-              icon: selectedBottomBarDecoration(index: 4),
-              label: 'Time',
-            ),
-          ],
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            canvasColor: AppColors.primaryColor,
+          ),
+          child: BottomNavigationBar(
+            // type: BottomNavigationBarType.fixed,
+            // backgroundColor: AppColors.primaryColor,
+            currentIndex: currentIndex,
+
+            onTap: (index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: selectedBottomBarDecoration(index: 0),
+                label: 'Quran',
+              ),
+              BottomNavigationBarItem(
+                icon: selectedBottomBarDecoration(index: 1),
+                label: 'Hadeth',
+              ),
+              BottomNavigationBarItem(
+                icon: selectedBottomBarDecoration(index: 2),
+                label: 'Sebha',
+              ),
+              BottomNavigationBarItem(
+                icon: selectedBottomBarDecoration(index: 3),
+                label: 'Radio',
+              ),
+              BottomNavigationBarItem(
+                icon: selectedBottomBarDecoration(index: 4),
+                label: 'Time',
+              ),
+            ],
+          ),
         ),
       ),
     );
