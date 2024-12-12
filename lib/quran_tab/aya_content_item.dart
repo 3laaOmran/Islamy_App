@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/styles/text_styles.dart';
 
 import '../themes/app_colors.dart';
 
@@ -23,11 +24,7 @@ class AyaContentItem extends StatelessWidget {
         '$content [${index + 1}]',
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
-        style: const TextStyle(
-          color: AppColors.primaryColor,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
+        style: TextStyles.font20BoldPrimaryColor,
       ),
     );
   }

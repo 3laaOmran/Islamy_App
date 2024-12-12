@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/models/sura_model.dart';
 import 'package:islami_app/quran_tab/aya_content_item.dart';
+import 'package:islami_app/styles/text_styles.dart';
 import 'package:islami_app/themes/app_colors.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
@@ -42,11 +43,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               ),
               Text(
                 args.suraArName,
-                style: const TextStyle(
-                  color: AppColors.primaryColor,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyles.font24BoldPrimaryColor,
               ),
               Expanded(
                 child: verses.isEmpty

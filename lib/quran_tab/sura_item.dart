@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/models/sura_model.dart';
-import 'package:islami_app/themes/app_colors.dart';
+import 'package:islami_app/styles/text_styles.dart';
 
 class SuraItem extends StatelessWidget {
   final SuraModel suraModel;
@@ -18,11 +18,7 @@ class SuraItem extends StatelessWidget {
             Image.asset('assets/images/sura_number_frame.png'),
             Text(
               '${suraModel.index + 1}',
-              style: TextStyle(
-                fontSize: 15,
-                color: AppColors.whiteColor,
-                fontWeight: FontWeight.w700,
-              ),
+              style: TextStyles.font15W700WhiteColor,
             ),
           ],
         ),
@@ -36,29 +32,17 @@ class SuraItem extends StatelessWidget {
                 children: [
                   Text(
                     suraModel.suraEnName,
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: AppColors.whiteColor,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: TextStyles.font20W700WhiteColor,
                   ),
                   Text(
                     '${suraModel.suraVerses} verses',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors.whiteColor,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: TextStyles.font14W700WhiteColor,
                   ),
                 ],
               ),
               Text(
                 suraModel.suraArName,
-                style: TextStyle(
-                  fontSize: 20,
-                  color: AppColors.whiteColor,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: TextStyles.font20W700WhiteColor,
               ),
             ],
           ),
