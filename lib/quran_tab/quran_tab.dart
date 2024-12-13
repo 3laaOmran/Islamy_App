@@ -47,71 +47,81 @@ class QuranTab extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Text(
-            'Most Recently',
-            style: TextStyles.font16W700WhiteColor,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Al-Anbiya',
-                      style: TextStyles.font24W700BlackColor,
-                    ),
-                    Text(
-                      'الانبياء',
-                      style: TextStyles.font24W700BlackColor,
-                    ),
-                    Text(
-                      '112 Verses',
-                      style: TextStyles.font14W700BlackColor,
-                    ),
-                  ],
-                ),
-                Image.asset('assets/images/most_recent.png'),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            'Suras List',
-            style: TextStyles.font16W700WhiteColor,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
           Expanded(
-            child: ListView.separated(
-                itemBuilder: (context, index) => InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, SuraDetailsScreen.routeName,
-                            arguments: SuraModel.getSuraModel(index));
-                      },
-                      child: SuraItem(suraModel: SuraModel.getSuraModel(index)),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Most Recently',
+                    style: TextStyles.font16W700WhiteColor,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                separatorBuilder: (context, index) => const Divider(
-                      color: AppColors.whiteColor,
-                      thickness: 1,
-                      indent: 35,
-                      endIndent: 40,
-                      height: 20,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Al-Anbiya',
+                              style: TextStyles.font24W700BlackColor,
+                            ),
+                            Text(
+                              'الانبياء',
+                              style: TextStyles.font24W700BlackColor,
+                            ),
+                            Text(
+                              '112 Verses',
+                              style: TextStyles.font14W700BlackColor,
+                            ),
+                          ],
+                        ),
+                        Image.asset('assets/images/most_recent.png'),
+                      ],
                     ),
-                itemCount: SuraModel.suraVersesList.length),
-          )
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Suras List',
+                    style: TextStyles.font16W700WhiteColor,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ListView.separated(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) => InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, SuraDetailsScreen.routeName,
+                                  arguments: SuraModel.getSuraModel(index));
+                            },
+                            child: SuraItem(
+                                suraModel: SuraModel.getSuraModel(index)),
+                          ),
+                      separatorBuilder: (context, index) => const Divider(
+                            color: AppColors.whiteColor,
+                            thickness: 1,
+                            indent: 35,
+                            endIndent: 40,
+                            height: 20,
+                          ),
+                      itemCount: SuraModel.suraVersesList.length),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

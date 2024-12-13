@@ -36,43 +36,50 @@ class _SebhaTabState extends State<SebhaTab> {
             Image.asset('assets/images/sebha_head.png'),
           ],
         ),
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            AnimatedRotation(
-                turns: turns,
-                duration: const Duration(milliseconds: 200),
-                child: InkWell(
-                    onTap: () {
-                      setState(() {
-                        turns += 1 / 30;
-                        counter++;
-                        if (counter > 33 && counter < 66) {
-                          azkar = 'الحمد لله';
-                        } else if (counter > 66 && counter < 99) {
-                          azkar = ' الله اكبر';
-                        } else if (counter == 100) {
-                          azkar = ' لا اله الا الله';
-                        } else if (counter == 101) {
-                          azkar = 'سبحان الله';
-                          counter = 0;
-                        }
-                      });
-                    },
-                    child: Image.asset('assets/images/sebha_body.png'))),
-            Column(
-              children: [
-                Text(
-                  azkar,
-                  style: TextStyles.font36BoldWhiteColor,
-                ),
-                Text(
-                  '$counter',
-                  style: TextStyles.font36BoldWhiteColor,
-                ),
-              ],
-            )
-          ],
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 10),
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height * 0.4,
+          ),
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              AnimatedRotation(
+                  turns: turns,
+                  duration: const Duration(milliseconds: 200),
+                  child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          turns += 1 / 30;
+                          counter++;
+                          if (counter > 33 && counter < 66) {
+                            azkar = 'الحمد لله';
+                          } else if (counter > 66 && counter < 99) {
+                            azkar = ' الله اكبر';
+                          } else if (counter == 100) {
+                            azkar = ' لا اله الا الله';
+                          } else if (counter == 101) {
+                            azkar = 'سبحان الله';
+                            counter = 0;
+                          }
+                        });
+                      },
+                      child: Image.asset('assets/images/sebha_body.png'))),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    azkar,
+                    style: TextStyles.font36BoldWhiteColor,
+                  ),
+                  Text(
+                    '$counter',
+                    style: TextStyles.font36BoldWhiteColor,
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ],
     );
