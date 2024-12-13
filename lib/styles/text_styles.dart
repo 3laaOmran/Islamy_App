@@ -22,6 +22,11 @@ class TextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w700,
   );
+  static const TextStyle font36BoldWhiteColor = TextStyle(
+    color: AppColors.whiteColor,
+    fontSize: 36,
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle font15W700WhiteColor = TextStyle(
     fontSize: 15,
     color: AppColors.whiteColor,
