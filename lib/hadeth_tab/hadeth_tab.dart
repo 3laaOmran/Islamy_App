@@ -30,66 +30,69 @@ class _HadethTabState extends State<HadethTab> {
                 ),
               )
             : Expanded(
-                child: CarouselSlider.builder(
-                  options: CarouselOptions(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: CarouselSlider.builder(
+                    options: CarouselOptions(
                       enlargeFactor: 0.15,
                       viewportFraction: 0.75,
-                      height: MediaQuery.of(context).size.height * 0.65,
+                      height: double.infinity,
                       reverse: true,
                       enlargeCenterPage: true,
-                      animateToClosest: true),
-                  itemCount: hadeth.length,
-                  itemBuilder: (BuildContext context, int itemIndex,
-                          int pageViewIndex) =>
-                      InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        HadethDetailsScreen.routeName,
-                        arguments: hadeth[itemIndex],
-                      );
-                    },
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                      padding: EdgeInsets.only(top: 10),
-                      decoration: BoxDecoration(
-                        color: AppColors.primaryColor,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            'assets/images/hadeth_content_bg.png',
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.fill,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 30,
-                                ),
-                                Text(
-                                  hadeth[itemIndex].title,
-                                  style: TextStyles.font24W700BlackColor,
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    hadeth[itemIndex].content.join(''),
-                                    textAlign: TextAlign.center,
-                                    textDirection: TextDirection.rtl,
-                                    style: TextStyles.font16BoldBlackColor,
-                                  ),
-                                ),
-                              ],
+                    ),
+                    itemCount: hadeth.length,
+                    itemBuilder: (BuildContext context, int itemIndex,
+                            int pageViewIndex) =>
+                        InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          HadethDetailsScreen.routeName,
+                          arguments: hadeth[itemIndex],
+                        );
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.only(top: 10),
+                        decoration: BoxDecoration(
+                          color: AppColors.primaryColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Stack(
+                          children: [
+                            Image.asset(
+                              'assets/images/hadeth_content_bg.png',
+                              width: double.infinity,
+                              height: double.infinity,
+                              fit: BoxFit.fill,
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Text(
+                                    hadeth[itemIndex].title,
+                                    style: TextStyles.font24W700BlackColor,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      hadeth[itemIndex].content.join(''),
+                                      textAlign: TextAlign.center,
+                                      textDirection: TextDirection.rtl,
+                                      style: TextStyles.font16BoldBlackColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

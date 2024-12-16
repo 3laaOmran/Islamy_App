@@ -11,6 +11,9 @@ class RadioTab extends StatelessWidget {
       length: 2,
       child: Column(
         children: [
+          const SizedBox(
+            height: 10,
+          ),
           Image.asset('assets/images/islami_logo.png'),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
