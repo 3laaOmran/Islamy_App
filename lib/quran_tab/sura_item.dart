@@ -5,6 +5,7 @@ import 'package:islami_app/styles/text_styles.dart';
 class SuraItem extends StatelessWidget {
   final SuraModel suraModel;
 
+  // final int index;
   const SuraItem(
       {super.key, required this.suraModel});
 
