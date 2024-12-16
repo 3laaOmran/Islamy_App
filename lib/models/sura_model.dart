@@ -2,6 +2,8 @@ class SuraModel {
   String suraEnName;
   String suraArName;
   String suraVerses;
+
+  // String fileName;
   int index;
   static List<String> suraArNameList = [
     "الفاتحه",
@@ -351,19 +353,21 @@ class SuraModel {
     '5',
     '6'
   ];
+  static List<SuraModel> suraList = [];
 
   SuraModel({
     required this.suraEnName,
     required this.suraArName,
     required this.suraVerses,
+    // required this.fileName,
     required this.index,
   });
 
-  static SuraModel getSuraModel(int index) {
-    return SuraModel(
-        suraEnName: suraEnNameList[index],
-        suraArName: suraArNameList[index],
-        suraVerses: suraVersesList[index],
-        index: index);
-  }
+// static SuraModel getSuraModel(int index) {
+//   return SuraModel(
+//       suraEnName: suraEnNameList[index],
+//       suraArName: suraArNameList[index],
+//       suraVerses: suraVersesList[index],
+//       index: index);
+// }
 }
