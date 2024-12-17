@@ -17,7 +17,7 @@ class _AyaContentItemState extends State<AyaContentItem> {
   int? selectedAyaIndex;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         setState(() {
           if (selectedAyaIndex == widget.index) {
