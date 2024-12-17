@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/Home/home_screen.dart';
+import 'package:islami_app/helpers/cash_helper.dart';
 import 'package:islami_app/onboarding_screen/onboarding_list.dart';
 import 'package:islami_app/styles/text_styles.dart';
 import 'package:islami_app/themes/app_colors.dart';
@@ -82,8 +83,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           duration: const Duration(milliseconds: 350),
                           curve: Curves.easeIn,
                         )
-                      : Navigator.pushReplacementNamed(
-                          context, HomeScreen.routeName);
+                      : CashHelper.setData(key: 'onBoarding', value: true)
+                          .then((value) {
+                          if (value) {
+                            Navigator.pushReplacementNamed(
+                                context, HomeScreen.routeName);
+                          }
+                        });
                 },
                 child: Text(
                   currentIndex == pages.length - 1 ? 'Finish' : 'Next',
