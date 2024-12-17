@@ -62,4 +62,9 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.whiteColor,
   );
+  static const TextStyle font16W400 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Janna',
+  );
 }

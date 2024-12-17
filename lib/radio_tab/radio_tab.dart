@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/radio_tab/tab_bar_widget.dart';
+import 'package:islami_app/styles/text_styles.dart';
 import 'package:islami_app/themes/app_colors.dart';
 
 class RadioTab extends StatelessWidget {
@@ -26,10 +27,7 @@ class RadioTab extends StatelessWidget {
                 labelColor: AppColors.blackColor,
                 dividerColor: AppColors.transparent,
                 labelPadding: const EdgeInsets.symmetric(vertical: 10),
-                labelStyle: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                labelStyle: TextStyles.font16W400,
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicator: BoxDecoration(
                     color: AppColors.primaryColor,
